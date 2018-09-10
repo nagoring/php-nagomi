@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nago\\": "src/"
+            "Nago\\": "src/Nago/"
         }
     }
 }
