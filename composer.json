@@ -1,0 +1,12 @@
+{
+    "name": "nagoring/php-nagomi",
+    "authors": [
+        {
+            "name": "Nagomi",
+            "email": "nagomi.github@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.67"
+    }
+}
