@@ -11,7 +11,6 @@
     ],
     "require": {
         "php":">=7.0",
-        "nagoring/php-nagomi":"~0.1.1",
         "aws/aws-sdk-php": "^3.67"
     },
     "autoload": {

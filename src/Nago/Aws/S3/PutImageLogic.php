@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nagomi
- * Date: 2018/09/11
- * Time: 5:28
- */
+namespace Nago\Aws\S3;
 
 class PutImageLogic
 {
