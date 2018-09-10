@@ -1,5 +1,8 @@
 {
     "name": "nagoring/php-nagomi",
+    "keywords":["php","class"],
+    "type":"library",
+    "license":"MIT",
     "authors": [
         {
             "name": "Nagomi",
@@ -7,6 +10,8 @@
         }
     ],
     "require": {
+        "php":">=7.0",
+        "nagoring/php-nagomi":"~0.1.0",
         "aws/aws-sdk-php": "^3.67"
     }
 }
