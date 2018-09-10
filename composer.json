@@ -13,7 +13,7 @@
         "php":">=7.0",
         "nagoring/php-nagomi":"~0.1.0",
         "aws/aws-sdk-php": "^3.67"
-    }
+    },
     "autoload": {
         "psr-4": {
             "Nago\\": "src/"
