@@ -26,9 +26,8 @@ class DeleteImageLogic
 	 * @param string $dest_filepath
 	 * @return $this
 	 */
-	public function run(string $src_filepath, string $dest_filepath){
+	public function run(string $dest_filepath){
 		try {
-			$content_type = mime_content_type($src_filepath);
 			/* @var \Aws\Result $awsResult */
 			$awsResult = $this->s3->deleteObject([
 				'Bucket' => $this->bucket,
