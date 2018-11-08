@@ -33,9 +33,6 @@ class DeleteImageLogic
 			$awsResult = $this->s3->deleteObject([
 				'Bucket' => $this->bucket,
 				'Key'    => $dest_filepath,
-				'Body'   => fopen($src_filepath, 'r'),
-				'ACL'    => 'public-read',
-				'ContentType' => $content_type,
 			]);
 		} catch (\Aws\S3\Exception\S3Exception $e) {
 			throw $e;
