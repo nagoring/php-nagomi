@@ -22,22 +22,24 @@ class DeleteImageLogic
 	}
 
 	/**
-	 * @param string $src_filepath
-	 * @param string $dest_filepath
+	 * @param string $filepath
 	 * @return $this
 	 */
-	public function run(string $dest_filepath){
+	public function run(string $filepath){
 		try {
 			/* @var \Aws\Result $awsResult */
 			$awsResult = $this->s3->deleteObject([
 				'Bucket' => $this->bucket,
-				'Key'    => $dest_filepath,
+				'Key'    => $filepath,
 			]);
 		} catch (\Aws\S3\Exception\S3Exception $e) {
 			throw $e;
 		}
 		$this->url = $awsResult['ObjectURL'];
 		return $this;
+	}
+	public function getImageUrl() : string{
+		return $this->url;
 	}
 
 }
