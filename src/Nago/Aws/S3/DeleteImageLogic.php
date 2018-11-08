@@ -1,14 +1,17 @@
 <?php
+declare(strict_types=1);
+
 namespace Nago\Aws\S3;
 
-class PutImageLogic
+
+class DeleteImageLogic
 {
 	protected $s3;
 	protected $bucket;
 	protected $url;
 
 	/**
-	 * PutImageLogic constructor.
+	 * DeleteImageLogic constructor.
 	 * @param \Aws\S3\S3Client $s3
 	 * @param $bucket
 	 */
@@ -19,16 +22,15 @@ class PutImageLogic
 	}
 
 	/**
-	 * @param $src_filepath
-	 * @param $dest_filepath
+	 * @param string $src_filepath
+	 * @param string $dest_filepath
 	 * @return $this
-	 * @throw \Aws\S3\Exception\S3Exception
 	 */
 	public function run(string $src_filepath, string $dest_filepath){
 		try {
 			$content_type = mime_content_type($src_filepath);
 			/* @var \Aws\Result $awsResult */
-			$awsResult = $this->s3->putObject([
+			$awsResult = $this->s3->deleteObject([
 				'Bucket' => $this->bucket,
 				'Key'    => $dest_filepath,
 				'Body'   => fopen($src_filepath, 'r'),
@@ -41,7 +43,5 @@ class PutImageLogic
 		$this->url = $awsResult['ObjectURL'];
 		return $this;
 	}
-	public function getImageUrl() : string{
-		return $this->url;
-	}
+
 }
