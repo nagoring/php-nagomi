@@ -26,17 +26,20 @@ class PutImageLogic
 	 */
 	public function run(string $src_filepath, string $dest_filepath){
 		try {
+			$fp = fopen($src_filepath, 'r');
 			$content_type = mime_content_type($src_filepath);
 			/* @var \Aws\Result $awsResult */
 			$awsResult = $this->s3->putObject([
 				'Bucket' => $this->bucket,
 				'Key'    => $dest_filepath,
-				'Body'   => fopen($src_filepath, 'r'),
+				'Body'   => $fp,
 				'ACL'    => 'public-read',
 				'ContentType' => $content_type,
 			]);
 		} catch (\Aws\S3\Exception\S3Exception $e) {
 			throw $e;
+		} finally {
+			fclose($fp);
 		}
 		$this->url = $awsResult['ObjectURL'];
 		return $this;
